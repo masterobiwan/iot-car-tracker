@@ -92,9 +92,10 @@ def main(event, context):
             client = Client(account_sid, auth_token)
             
             call = client.calls.create(
-                url='http://castelnajac.fr/twilio/call_config.xml',
+                url="https://castelnajac-open-data.s3-eu-west-1.amazonaws.com/cartracker/call_config.xml",
                 to=phone_conf[did_hex],
-                from_='+33567349937'
+                from_="+33567349937",
+                method="GET"
             )
             
             logger.info("Call id: {cid}".format(cid=call.sid))
